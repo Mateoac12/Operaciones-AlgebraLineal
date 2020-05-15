@@ -96,7 +96,27 @@ namespace _21bProyectoCalculador
 
             Console.WriteLine("Coordenada en X:");
 
-            double coorX = double.Parse(Console.ReadLine());
+            bool bucle = true;
+
+            double coorX = 0;
+
+            while (bucle)
+            {
+                try
+                {
+                    coorX = double.Parse(Console.ReadLine());
+
+                    bucle = false;
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Una respuesta en forma de texto no es valida. Intenta por ejemplo: 1");
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("Introdujo un caracter demasiado grande. Intente por ejemplo: 1");
+                }
+            }
 
             Console.WriteLine("\nCoordenada en Y:");
 
